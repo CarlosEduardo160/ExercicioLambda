@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Main {
     static void main(String[] args) {
@@ -19,11 +18,11 @@ public class Main {
         System.out.println(filtrarValorECategoria);
     }
 
-    static List<Despesa> filtrarDespesas(List<Despesa> despesas, Predicate<Despesa> despesaPredicate){
+    static List<Despesa> filtrarDespesas(List<Despesa> despesas, FiltraDespesa filtraDespesa){
         List<Despesa> despesasFiltradas = new ArrayList<>();
 
         for (Despesa despesa : despesas){
-            if (despesaPredicate.test(despesa)){
+            if (filtraDespesa.funcaoFiltrarDespesas(despesa)){
                 despesasFiltradas.add(despesa);
             }
         }
